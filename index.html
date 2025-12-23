@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, shrink-to-fit=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="HUNGGEROFF">
+    <meta name="theme-color" content="#FF9800">
+    <meta name="description" content="Menú digital de HUNGGEROFF - Papas fritas cargadas">
+    
+
+    <title>HUNGGEROFF - Apagamos tu hambre</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- PWA Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="image/logo2.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="image/logo2.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="image/logo2.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="image/logo2.png">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="image/logo.JPG" as="image" fetchpriority="high">
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://wa.me">
+</head>
+<body>
+    <!-- Install Button for Android -->
+    <button id="installBtn" class="install-btn" style="display: none; position: fixed; top: 10px; right: 10px; z-index: 1000; padding: 10px 20px; border-radius: 25px; font-weight: 700; box-shadow: 0 4px 15px rgba(255,152,0,0.3); background: #FFEB3B; color: #000; border: 2px solid #FF9800; cursor: pointer; font-family: 'Poppins', sans-serif;">
+        <i class="fas fa-download"></i> Instalar App
+    </button>
+
+    <!-- Install Banner for iPhone -->
+    <div id="ios-install-banner" class="install-banner" style="display: none;">
+        <div class="install-content">
+            <i class="fas fa-mobile-alt"></i>
+            <span>Para instalar esta app en iPhone:</span>
+        </div>
+        <div class="install-steps">
+            <div class="step">
+                <span class="step-number">1</span>
+                <span>Toca Compartir (<i class="fas fa-share"></i>)</span>
+            </div>
+            <div class="step">
+                <span class="step-number">2</span>
+                <span>Selecciona "Agregar a inicio"</span>
+            </div>
+            <div class="step">
+                <span class="step-number">3</span>
+                <span>Toca "Agregar". Y así de fácil te llevas nuestro Menú</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="logo-container">
+            <div class="logo">
+                <img src="image/logo.JPG" alt="HUNGGEROFF Logo" class="logo-image" loading="eager" fetchpriority="high">
+            </div>
+            <div class="brand-text">
+                <h1>HUNGGEROFF</h1>
+                <div class="tagline">Todos los días de 5pm a 11pm</div>
+            </div>
+        </div>
+        <h2 class="menu-title">NUESTRO MENÚ</h2>
+        <p class="hours">Papas fritas cargadas con los mejores ingredientes</p>
+    </header>
+
+    <!-- Menu Items -->
+    <main class="menu-content">
+        <div class="menu-items">
+            <!-- TOCI CHEDDAR -->
+            <div class="menu-item">
+                <div class="item-content">
+                    <div class="item-image">
+                        <img src="imageProductos/CHEDDAR.png" alt="TOCI CHEDDAR" loading="eager" fetchpriority="high" decoding="async">
+                    </div>
+                    <div class="item-details">
+                        <h3>TOCI CHEDDAR</h3>
+                        <p class="description">Papas tocineta queso cheddar</p>
+                        <div class="item-actions">
+                            <div class="prices">
+                                <span class="price">$25.000 X 1</span>
+                                <span class="price">$33.000 X 2</span>
+                            </div>
+                            <a href="https://wa.me/+573133118058?text=Hola,%20quiero%20ordenar%20TOCI%20CHEDDAR" class="order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Pedir Domicilio
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LATINA -->
+            <div class="menu-item">
+                <div class="item-content">
+                    <div class="item-image">
+                        <img src="imageProductos/LATINA.png" alt="LATINA" loading="lazy" decoding="async" fetchpriority="low">
+                    </div>
+                    <div class="item-details">
+                        <h3>LATINA</h3>
+                        <p class="description">Papas carne desmechada BBQ pico de gallo guacamole</p>
+                        <div class="item-actions">
+                            <div class="prices">
+                                <span class="price">$32.000 X 1</span>
+                                <span class="price">$38.000 X 2</span>
+                            </div>
+                            <a href="https://wa.me/+573133118058?text=Hola,%20quiero%20ordenar%20LATINA" class="order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Pedir Domicilio
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PORKI -->
+            <div class="menu-item">
+                <div class="item-content">
+                    <div class="item-image">
+                        <img src="imageProductos/PORKY (1).png" alt="PORKI" loading="lazy" decoding="async" fetchpriority="low">
+                    </div>
+                    <div class="item-details">
+                        <h3>PORKI</h3>
+                        <p class="description">Papas chicharrón tocineta guacamole</p>
+                        <div class="item-actions">
+                            <div class="prices">
+                                <span class="price">$32.000 X 1</span>
+                                <span class="price">$38.000 X 2</span>
+                            </div>
+                            <a href="https://wa.me/+573133118058?text=Hola,%20quiero%20ordenar%20PORKI" class="order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Pedir Domicilio
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RANCHIZ -->
+            <div class="menu-item">
+                <div class="item-content">
+                    <div class="item-image">
+                        <img src="imageProductos/RANCHÍZ.png" alt="RANCHIZ" loading="lazy" decoding="async" fetchpriority="low">
+                    </div>
+                    <div class="item-details">
+                        <h3>RANCHIZ</h3>
+                        <p class="description">Papas salchicha ranchera queso mozzarella maíz tierno</p>
+                        <div class="item-actions">
+                            <div class="prices">
+                                <span class="price">$25.000 X 1</span>
+                                <span class="price">$30.000 X 2</span>
+                            </div>
+                            <a href="https://wa.me/+573133118058?text=Hola,%20quiero%20ordenar%20RANCHIZ" class="order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Pedir Domicilio
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ONDULADAS CHEDDAR -->
+            <div class="menu-item">
+                <div class="item-content">
+                    <div class="item-details">
+                        <h3>ONDULADAS CHEDDAR</h3>
+                        <p class="description">Papas onduladas y queso cheddar</p>
+                        <div class="item-actions">
+                            <a href="https://wa.me/+573133118058?text=Hola,%20quiero%20ordenar%20ONDULADAS%20CHEDDAR" class="order-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Pedir Domicilio
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Adiciones Section -->
+    <section class="menu-categories">
+        <div class="category-grid">
+            <a href="adiciones.html" class="category-btn">
+                <i class="fas fa-plus-circle"></i>
+                <span>Adiciones</span>
+            </a>
+            <a href="bebidas.html" class="category-btn">
+                <i class="fas fa-cocktail"></i>
+                <span>Bebidas</span>
+            </a>
+        </div>
+    </section>
+
+
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="address">
+            <h3>Dirección</h3>
+            <a href="https://maps.app.goo.gl/3ohK4DdWGAhP8dm57" target="_blank" style="text-decoration: none; color: inherit;">
+                <p><i class="fas fa-map-marker-alt"></i> Los Container Cl. 10 #25-32, Caucasia, Antioquia</p>
+            </a>
+        </div>
+        <div class="contact">
+            <h3>Contáctanos</h3>
+            <div class="contact-icons">
+                <a href="tel:+573133118058" class="contact-icon phone">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="https://www.instagram.com/hunggeroff/?utm_source=ig_web_button_share_sheet" class="contact-icon facebook">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@hunggeroff" class="contact-icon tiktok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://wa.me/+573133118058" class="contact-icon whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 HUNGGEROFF. Todos los derechos reservados.</p>
+        <p>Emil Jiménez Ortiz - Ing. de Software</p>
+        <a href="https://wa.me/+573192364724?text=Hola,%20quiero%20mi%20propio%20menú%20digital." class="contact-dev-btn" target="_blank" style="text-decoration: none; display: inline-block; margin-top: 15px; padding: 8px 18px; border-radius: 20px; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.3s ease; background: #4caf50; color: white; border: none;">
+            <i class="fab fa-whatsapp"></i> Contáctame
+        </a>
+    </footer>
+
+    <script src="script.js" defer></script>
+    
+    <!-- PWA Installation Script -->
+    <script>
+        // PWA Installation Logic
+        let deferredPrompt;
+        const installBtn = document.getElementById('installBtn');
+        const iosInstallBanner = document.getElementById('ios-install-banner');
+
+        // Detect device type
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        const isAndroid = /Android/.test(navigator.userAgent);
+        const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+
+        console.log('Device detection:', { isIOS, isAndroid, isStandalone });
+
+        // Show appropriate installation method based on device
+        if (isIOS && !isStandalone) {
+            // Show iOS installation banner
+            iosInstallBanner.style.display = 'block';
+            console.log('iOS device detected - showing iOS installation banner');
+        } else if (isAndroid && !isStandalone) {
+            // For Android, we'll show a manual install button if beforeinstallprompt doesn't fire
+            console.log('Android device detected - waiting for install prompt');
+            
+            // Show manual install instructions for Android after a delay
+            setTimeout(() => {
+                if (!deferredPrompt && !isStandalone) {
+                    installBtn.style.display = 'block';
+                    installBtn.innerHTML = '<i class="fas fa-info-circle"></i> Instalar App';
+                    installBtn.className = 'install-btn';
+                    console.log('Showing manual Android install button');
+                }
+            }, 3000);
+        } else {
+            // Desktop or other devices
+            console.log('Desktop or other device detected');
+        }
+
+        // Listen for the beforeinstallprompt event (Android)
+        window.addEventListener('beforeinstallprompt', (e) => {
+            console.log('beforeinstallprompt event fired');
+            // Prevent Chrome 67 and earlier from automatically showing the prompt
+            e.preventDefault();
+            // Stash the event so it can be triggered later
+            deferredPrompt = e;
+                         // Show the install button for Android
+             if (isAndroid && !isStandalone) {
+                 installBtn.style.display = 'block';
+                 installBtn.innerHTML = '<i class="fas fa-download"></i> Instalar App';
+                 installBtn.className = 'install-btn';
+                 installBtn.style.color = '#000';
+                 console.log('Android install prompt available - showing install button');
+             }
+        });
+
+        // Install button click handler (Android)
+        installBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                // Show the install prompt
+                deferredPrompt.prompt();
+                // Wait for the user to respond to the prompt
+                const { outcome } = await deferredPrompt.userChoice;
+                console.log(`User response to the install prompt: ${outcome}`);
+                // Clear the deferredPrompt variable
+                deferredPrompt = null;
+                // Hide the install button
+                installBtn.style.display = 'none';
+            } else {
+                // Manual install instructions for Android
+                alert('Para instalar esta app en Android:\n\n1. Toca el menú (⋮) en Chrome\n2. Selecciona "Instalar app"\n3. Confirma la instalación');
+            }
+        });
+
+        // Listen for successful installation
+        window.addEventListener('appinstalled', (evt) => {
+            console.log('App was installed');
+            installBtn.style.display = 'none';
+            iosInstallBanner.style.display = 'none';
+        });
+
+        // Service Worker Registration with Update Detection
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then((registration) => {
+                        console.log('SW registered: ', registration);
+                        
+                        // Check for updates every time the page loads
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // New content is available, show update notification
+                                    showUpdateNotification();
+                                }
+                            });
+                        });
+                        
+                        // Check for updates immediately
+                        registration.update();
+                    })
+                    .catch((registrationError) => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+
+        // Show update notification
+        function showUpdateNotification() {
+            const updateBanner = document.createElement('div');
+            updateBanner.id = 'update-banner';
+            updateBanner.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #ff6b35, #f7931e);
+                color: white;
+                padding: 15px;
+                text-align: center;
+                z-index: 10000;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+                font-family: 'Poppins', sans-serif;
+                font-weight: 600;
+            `;
+            
+            updateBanner.innerHTML = `
+                <div style="display: flex; align-items: center; justify-content: center; gap: 15px;">
+                    <i class="fas fa-sync-alt" style="animation: spin 2s linear infinite;"></i>
+                    <span>¡Nueva versión disponible!</span>
+                    <button onclick="updateApp()" style="
+                        background: white;
+                        color: #ff6b35;
+                        border: none;
+                        padding: 8px 16px;
+                        border-radius: 20px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        Actualizar
+                    </button>
+                    <button onclick="dismissUpdate()" style="
+                        background: transparent;
+                        color: white;
+                        border: 1px solid white;
+                        padding: 8px 12px;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        font-size: 16px;
+                    ">×</button>
+                </div>
+            `;
+            
+            document.body.appendChild(updateBanner);
+            
+            // Add CSS animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // Update app function
+        function updateApp() {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistration().then((registration) => {
+                    if (registration && registration.waiting) {
+                        registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+                        window.location.reload();
+                    }
+                });
+            }
+        }
+
+        // Dismiss update notification
+        function dismissUpdate() {
+            const banner = document.getElementById('update-banner');
+            if (banner) {
+                banner.remove();
+            }
+        }
+
+        // Debug information
+        console.log('PWA Installation Script loaded');
+        console.log('User Agent:', navigator.userAgent);
+        console.log('Display Mode:', window.matchMedia('(display-mode: standalone)').matches ? 'standalone' : 'browser');
+    </script>
+</body>
+</html> 

@@ -1,0 +1,39 @@
+{
+  "name": "HUNGGEROFF",
+  "short_name": "HUNGGEROFF",
+  "description": "HUNGGEROFF - Apagamos tu hambre - Papas fritas cargadas",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#1a1a1a",
+  "theme_color": "#FF9800",
+  "orientation": "portrait-primary",
+  "scope": "./",
+  "lang": "es",
+  "categories": ["food", "restaurant", "lifestyle"],
+  "icons": [
+    {
+      "src": "image/logo2.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "image/logo2.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "image/logo2.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "image/logo2.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ]
+}
+  
