@@ -225,40 +225,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Optimize image loading - prevent reload on scroll
-    const images = document.querySelectorAll('img[loading="lazy"]');
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    // Ensure image is loaded only once
-                    if (!img.complete) {
-                        img.loading = 'eager';
-                    }
-                    observer.unobserve(img);
+    // Preload all product images to prevent reload on scroll
+    const productImages = document.querySelectorAll('.item-image img, .logo-image');
+    productImages.forEach((img, index) => {
+        // Preload all images immediately
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = img.src;
+        link.fetchPriority = index < 2 ? 'high' : 'auto';
+        document.head.appendChild(link);
+        
+        // Force image to stay in memory
+        if (img.complete) {
+            // Image already loaded, keep reference
+            img.style.willChange = 'auto';
+        } else {
+            img.addEventListener('load', function() {
+                this.style.willChange = 'auto';
+                // Keep image in memory by creating a reference
+                if (!window.imageCache) window.imageCache = [];
+                window.imageCache.push(this);
+            }, { once: true });
+        }
+    });
+    
+    // Prevent image unloading on scroll
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => {
+            productImages.forEach(img => {
+                // Force browser to keep image in memory
+                if (img.complete) {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    canvas.width = 1;
+                    canvas.height = 1;
+                    ctx.drawImage(img, 0, 0, 1, 1);
                 }
             });
-        }, {
-            rootMargin: '50px'
         });
-        
-        images.forEach(img => {
-            imageObserver.observe(img);
-        });
-    }
-    
-    // Preload first visible images
-    const firstImages = document.querySelectorAll('.item-image img');
-    if (firstImages.length > 0) {
-        // Preload first 2 images
-        for (let i = 0; i < Math.min(2, firstImages.length); i++) {
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.as = 'image';
-            link.href = firstImages[i].src;
-            document.head.appendChild(link);
-        }
     }
 
     // Add install prompt for PWA

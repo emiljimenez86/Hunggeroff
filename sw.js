@@ -1,6 +1,6 @@
-const CACHE_NAME = 'hunggeroff-v4';
-const STATIC_CACHE = 'hunggeroff-static-v4';
-const DYNAMIC_CACHE = 'hunggeroff-dynamic-v4';
+const CACHE_NAME = 'hunggeroff-v5';
+const STATIC_CACHE = 'hunggeroff-static-v5';
+const DYNAMIC_CACHE = 'hunggeroff-dynamic-v5';
 
 const urlsToCache = [
     './',
@@ -99,21 +99,21 @@ self.addEventListener('fetch', (event) => {
         })
     );
   }
-  // For images and other assets, try cache first, then network
+  // For images and other assets, ALWAYS use cache first, never reload
   else if (url.pathname.match(/\.(jpg|jpeg|png|gif|webp|css|js|woff|woff2)$/)) {
     event.respondWith(
       caches.match(request)
         .then((response) => {
           if (response) {
-            // Return cached version immediately
+            // Return cached version immediately - never fetch from network
             return response;
           }
-          // If not in cache, fetch and cache
+          // Only fetch if not in cache (first time load)
           return fetch(request).then((fetchResponse) => {
             // Only cache successful responses
             if (fetchResponse && fetchResponse.status === 200) {
               const responseClone = fetchResponse.clone();
-              // Cache in background to not block response
+              // Cache immediately
               caches.open(DYNAMIC_CACHE).then((cache) => {
                 cache.put(request, responseClone).catch(() => {
                   // Ignore cache errors
